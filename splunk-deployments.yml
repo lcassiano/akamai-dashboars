@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: splunk-deployment
+  labels:
+    app: splunk
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: splunk
+  template:
+    metadata:
+      labels:
+        app: splunk
+    spec:
+      containers:
+      - name: splunk
+        image: splunk/splunk:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: SPLUNK_START_ARGS
+          value: --accept-license
+        - name: SPLUNK_PASSWORD
+          value: 'dsdR#Swc@0kWQ'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: splunk-service
+spec:
+  selector:
+    app: splunk
+  ports:
+    - port: 8000
+      targetPort: 8000
+  type: LoadBalancer
