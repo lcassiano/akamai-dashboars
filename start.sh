@@ -22,4 +22,4 @@ export KUBECONFIG=kubeconfig
 
 $KUBECTL_CMD apply -f splunk-deployments.yaml
 $KUBECTL_CMD apply -f elastic-deployments.yaml
-$KUBECTL_CMD apply -f opensearch-services.yaml
+#$KUBECTL_CMD apply -f opensearch-services.yaml

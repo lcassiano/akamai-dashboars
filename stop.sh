@@ -22,6 +22,6 @@ export KUBECONFIG=kubeconfig
 
 $KUBECTL_CMD delete -f splunk-deployments.yaml
 $KUBECTL_CMD delete -f elastic-deployments.yaml
-$KUBECTL_CMD delete -f opensearch-services.yaml
+#$KUBECTL_CMD delete -f opensearch-services.yaml
 
 
