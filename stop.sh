@@ -20,9 +20,9 @@ fi
 # Deploy the stack (uncomment the desired deployments and services to be applied).
 export KUBECONFIG=kubeconfig
 
-$KUBECTL_CMD delete -f stack-namespaces.yaml
-$KUBECTL_CMD delete -f splunk-deployments.yaml
-$KUBECTL_CMD delete -f elastic-deployments.yaml
 $KUBECTL_CMD delete -f stack-services.yaml
+$KUBECTL_CMD delete -f elastic-deployments.yaml
+$KUBECTL_CMD delete -f splunk-deployments.yaml
+$KUBECTL_CMD delete -f stack-namespaces.yaml
 
 
