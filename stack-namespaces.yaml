@@ -1,0 +1,5 @@
+# Default namespace (Stack name).
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: akamai-dashboard

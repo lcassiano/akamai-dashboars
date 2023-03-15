@@ -20,6 +20,7 @@ fi
 # Deploy the stack (uncomment the desired deployments and services to be applied).
 export KUBECONFIG=kubeconfig
 
+$KUBECTL_CMD apply -f stack-namespaces.yaml
 $KUBECTL_CMD apply -f splunk-deployments.yaml
 $KUBECTL_CMD apply -f elastic-deployments.yaml
-#$KUBECTL_CMD apply -f opensearch-services.yaml
+$KUBECTL_CMD apply -f stack-services.yaml

@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: elasticsearch-deployment
+  namespace: akamai-dashboard
   labels:
     app: elasticsearch
 spec:
@@ -31,6 +32,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kibana-deployment
+  namespace: akamai-dashboard
   labels:
     app: kibana
 spec:
@@ -53,27 +55,3 @@ spec:
           value: '["http://elasticsearch:9200"]'
         - name: server.host
           value: "localhost"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: elasticsearch-service
-spec:
-  selector:
-    app: elasticsearch
-  ports:
-    - port: 9200
-      targetPort: 9200
-  type: LoadBalancer
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: kibana-service
-spec:
-  selector:
-    app: kibana
-  ports:
-    - port: 5601
-      targetPort: 5601
-  type: LoadBalancer

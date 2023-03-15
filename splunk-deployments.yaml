@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: splunk-deployment
+  namespace: akamai-dashboard
   labels:
     app: splunk
 spec:
@@ -24,15 +25,3 @@ spec:
           value: --accept-license
         - name: SPLUNK_PASSWORD
           value: 'dsdR#Swc@0kWQ'
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: splunk-service
-spec:
-  selector:
-    app: splunk
-  ports:
-    - port: 8000
-      targetPort: 8000
-  type: LoadBalancer
