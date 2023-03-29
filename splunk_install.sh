@@ -25,7 +25,7 @@ sleep 30
 $KUBECTL_CMD apply -f stack-namespaces.yaml
 $KUBECTL_CMD apply -f splunk/stack-deployments.yaml
 $KUBECTL_CMD apply -f splunk/stack-services.yaml
-while ! $(host $SPLUNKHOSTNAME >/dev/null); do echo Please, configure dns hostname $SPLUNKHOSTNAME to appoint to $IPADDR; sleep 30; done
+while ! $(host $SPLUNKHOSTNAME >/dev/null); do echo "Please, configure dns hostname $SPLUNKHOSTNAME to appoint to $IPADDR"; sleep 30; done
 sed -e "s|splunk@example.com|$SSLEMAIL|g" ssl/letsencrypt-prod.yaml | $KUBECTL_CMD apply -f -
 $KUBECTL_CMD apply -f ssl/traefik-https-redirect-middleware.yaml
 sed -e "s|splunk.example.com|$SPLUNKHOSTNAME|g" ssl/ingress-tls.yaml | $KUBECTL_CMD apply -f -
