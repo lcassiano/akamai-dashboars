@@ -28,5 +28,3 @@ $KUBECTL_CMD apply -f splunk/stack-services.yaml
 $KUBECTL_CMD apply -f ssl/letsencrypt-prod.yaml
 $KUBECTL_CMD apply -f ssl/traefik-https-redirect-middleware.yaml
 $KUBECTL_CMD apply -f ssl/ingress-tls.yaml
-
-
