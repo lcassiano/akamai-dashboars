@@ -5,7 +5,7 @@ metadata:
   namespace: akamai-dashboard
 spec:
   acme:
-    email: leandro@wetware.com.br
+    email: splunk@example.com
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-prod

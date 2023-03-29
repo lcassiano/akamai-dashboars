@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: lcassiano-tls-ingress
+  name: splunk-tls-ingress
   namespace: akamai-dashboard
   annotations:
     kubernetes.io/ingress.class: traefik
@@ -9,7 +9,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
 spec:
   rules:
-    - host: splunk.lcassiano.me
+    - host: splunk.example.com
       http:
         paths:
           - path: /
@@ -20,6 +20,6 @@ spec:
                 port:
                   number: 8000
   tls:
-    - secretName: lcassiano-tls
+    - secretName: splunk-tls
       hosts:
-        - splunk.lcassiano.me
+        - splunk.example.com
